@@ -1,0 +1,102 @@
+#annabelle {
+	nav a {
+		color: rgb(46, 46, 46);
+	}
+	.splash {
+		position: fixed;
+		width: 100%;
+		.content {
+			height: 100vh;
+			background-image: url('../../../img/annabelle.jpg');
+			background-position: center;
+			background-size: cover;
+			display: flex;
+			position: relative;
+			top: 0;
+			&>div {
+				margin: auto;
+				text-align: center;
+				color: white;
+				font-weight: 700;
+				&>* {
+					margin: 0;
+				}
+				h1 {
+					font-size: 64px;
+					line-height: 90px;
+				}
+			}
+		}
+	}
+	.content {
+		top: 100vh;
+		z-index: 1;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		background-color: white;
+		color: #222;
+		#challenge {
+			width: 600px;
+			margin: 30px auto;
+			h3 {
+				color: #888;
+			}
+			p {
+				margin: 2rem 0;
+				line-height: 2rem;
+			}
+		}
+		#firstimages {
+			display: flex;
+			justify-content: center;
+			div {
+				height: 600px;
+				border-radius: 10px;
+				margin: 0 15px;
+			}
+			div:first-child {
+				width: 650px;
+				min-width: 650px;
+				background: url('../../../img/3_1.jpg') center/cover;
+			}
+			div:last-child {
+				width: 330px;
+				min-width: 330px;
+				background: url('../../../img/3-min.jpg') center/cover;
+			}
+		}
+		#corporateidentity {
+			width: 470px;
+			margin: 80px auto;
+			text-align: center;
+			p {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				color: #888;
+			}
+			strong {
+				font-size: 3rem;
+				font-weight: normal;
+				font-style: italic;
+				line-height: 5rem;
+			}
+		}
+		#caroussel {
+			.swiper-container {
+				width: 800px;
+				height: 600px;
+				border-radius: 15px;
+			}
+			img {
+				width: 100%;
+			}
+			.swiper-pagination-bullet {
+				background-color: black;
+			}
+			.swiper-button-prev, .swiper-button-next {
+				color: black;
+			}
+		}
+	}
+}
