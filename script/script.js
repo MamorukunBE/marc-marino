@@ -1,3 +1,5 @@
+var scrollerstatables;
+
 window.addEventListener("load", (e) => {
   	document.querySelector('.splash .hider').style.width = "0";
 	let topNavStyles = document.querySelector('nav.top').style;
@@ -20,7 +22,7 @@ window.addEventListener("load", (e) => {
 		})
 	}
 	else if (document.body.id == 'annabelle') {
-		var mySwiper = new Swiper('.swiper-container', {
+		new Swiper('.swiper-container', {
 			direction: 'horizontal',
 			loop: true,
 			centeredSlides: true,
@@ -32,6 +34,26 @@ window.addEventListener("load", (e) => {
 				prevEl: '.swiper-button-prev',
 			},
 		});
-		console.log(truc);
+		//-----
+		let scrollerstatableObjs = document.querySelectorAll('.scrollerstart');
+		scrollerstatables = Array.from(scrollerstatableObjs);
+		window.addEventListener('scroll', () => {
+			let scrollerstatablesTmp = scrollerstatables;
+			console.log(" ----- Start check " + scrollerstatables);
+			scrollerstatables.forEach((e, i) => {
+				let objBottomPosAtScreen = e.getBoundingClientRect().top;
+				let objBottomPosAtBody = window.pageYOffset + objBottomPosAtScreen;
+				let scrollBottomPosAtBody = window.pageYOffset + window.innerHeight;
+				console.log("Checking " + i + " on: " + e.id);
+				console.log("objBottomPosAtScreen: " + objBottomPosAtScreen + ", objBottomPosAtBody: " + objBottomPosAtBody + ", scrollBottomPosAtBody: " + scrollBottomPosAtBody);
+				if (scrollBottomPosAtBody >= objBottomPosAtBody) {
+					console.log("1 - " + i + ", id: " + e.id);
+					e.classList.remove('scrollerstart');
+					scrollerstatablesTmp.pop(e);
+					console.log(scrollerstatablesTmp);
+				}
+			});
+			scrollerstatables = scrollerstatablesTmp;
+		});
 	}
 });
