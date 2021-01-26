@@ -1,10 +1,20 @@
 #annabelle {
-	nav a {
-		color: rgb(46, 46, 46);
+	nav {
+		@media screen and (max-width: 1024px) {
+			background-color: #fff;
+		}
+		a {
+			color: rgb(46, 46, 46);
+		}
 	}
 	.splash {
 		position: fixed;
 		width: 100%;
+		@media screen and (max-width: 1024px) {
+			position: relative;
+			top: 122px;
+			height: 500px;
+		}
 		.content {
 			height: 100vh;
 			background-image: url('../../../img/annabelle.jpg');
@@ -13,6 +23,9 @@
 			display: flex;
 			position: relative;
 			top: 0;
+			@media screen and (max-width: 1024px) {
+				height: 100%;
+			}
 			&>div {
 				margin: auto;
 				text-align: center;
@@ -24,6 +37,9 @@
 				h1 {
 					font-size: 64px;
 					line-height: 90px;
+					@media screen and (max-width: 1024px) {
+						font-size: 48px;
+					}
 				}
 			}
 		}
@@ -33,13 +49,12 @@
 		flex-direction: column;
 		background-color: white;
 		color: #222;
-		.scrollerstart {
-			position: relative;
-			top: 200px;
-		}
 		&.wrapper {
 			position: relative;
 			top: 100vh;
+			@media screen and (max-width: 1024px) {
+				top: 122px;
+			}
 			z-index: 1;
 		}
 		#challenge {
@@ -56,20 +71,36 @@
 		#firstimages {
 			display: flex;
 			justify-content: center;
+			@media screen and (max-width: 1024px) {
+				flex-direction: column;
+				align-items: center;
+			}
 			div {
 				height: 600px;
 				border-radius: 10px;
 				margin: 0 15px;
+				@media screen and (max-width: 1024px) {
+					height: 372px;
+				}
 			}
 			div:first-child {
 				width: 650px;
 				min-width: 650px;
 				background: url('../../../img/3_1.jpg') center/cover;
+				@media screen and (max-width: 1024px) {
+					width: 550px;
+					min-width: 200px;
+				}
 			}
 			div:last-child {
 				width: 330px;
 				min-width: 330px;
 				background: url('../../../img/3-min.jpg') center/cover;
+				@media screen and (max-width: 1024px) {
+					width: 650px;
+					min-width: 200px;
+					margin-top: 20px;
+				}
 			}
 		}
 		.textdata {
@@ -164,6 +195,10 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		@media screen and (max-width: 1024px) {
+			top: 0px;
+			margin-top: 50px;
+		}
 		.content {
 			position: relative;
 			top: -50px;

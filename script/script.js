@@ -1,7 +1,7 @@
 var scrollerstatables;
 
 window.addEventListener("load", (e) => {
-  	document.querySelector('.splash .hider').style.width = "0";
+  	document.querySelector('.hider').style.width = "0";
 	let topNavStyles = document.querySelector('nav.top').style;
 	topNavStyles.opacity = "1";
 	topNavStyles.transform = "translateY(0)"
@@ -14,10 +14,12 @@ window.addEventListener("load", (e) => {
 		let projects = Array.from(document.querySelectorAll('.splash .content>div a'));
 		projects.forEach((e) => {
 			e.addEventListener('mouseenter', function(event) {
-				this.parentNode.querySelector('.img').style.opacity = '1';
+				if (window.innerWidth > 1024)
+					this.parentNode.querySelector('.img').style.opacity = '1';
 			})
 			e.addEventListener('mouseleave', function (event) {
-				this.parentNode.querySelector('.img').style.opacity = '0';
+				if (window.innerWidth > 1024)
+					this.parentNode.querySelector('.img').style.opacity = '0';
 			})
 		})
 	}
@@ -34,26 +36,30 @@ window.addEventListener("load", (e) => {
 				prevEl: '.swiper-button-prev',
 			},
 		});
-		//-----
-		let scrollerstatableObjs = document.querySelectorAll('.scrollerstart');
-		scrollerstatables = Array.from(scrollerstatableObjs);
-		window.addEventListener('scroll', () => {
-			let scrollerstatablesTmp = scrollerstatables;
-			console.log(" ----- Start check " + scrollerstatables);
-			scrollerstatables.forEach((e, i) => {
-				let objBottomPosAtScreen = e.getBoundingClientRect().top;
-				let objBottomPosAtBody = window.pageYOffset + objBottomPosAtScreen;
-				let scrollBottomPosAtBody = window.pageYOffset + window.innerHeight;
-				console.log("Checking " + i + " on: " + e.id);
-				console.log("objBottomPosAtScreen: " + objBottomPosAtScreen + ", objBottomPosAtBody: " + objBottomPosAtBody + ", scrollBottomPosAtBody: " + scrollBottomPosAtBody);
-				if (scrollBottomPosAtBody >= objBottomPosAtBody) {
-					console.log("1 - " + i + ", id: " + e.id);
-					e.classList.remove('scrollerstart');
-					scrollerstatablesTmp.pop(e);
-					console.log(scrollerstatablesTmp);
-				}
-			});
-			scrollerstatables = scrollerstatablesTmp;
+	}
+
+	// ScrollAtStart
+	//--------------
+	scrollerstatables = Array.from(document.querySelectorAll('.scrollerstart'));
+	//-----
+	window.addEventListener('scroll', () => { CheckScrollableStarts(); });
+	CheckScrollableStarts(true);		// For screen user refresh after scroll
+	//-----
+	function CheckScrollableStarts(initTransitions = false) {
+		scrollerstatables.forEach((e, i) => {
+			let objBottomPosAtBody = window.pageYOffset + e.getBoundingClientRect().top;
+			let scrollBottomPosAtBody = window.pageYOffset + window.innerHeight;
+			if (scrollBottomPosAtBody >= objBottomPosAtBody) {
+				e.style.top = "0";
+				scrollerstatables = scrollerstatables.filter((elem) => {
+					return elem != e;
+				});
+			}
+			//-----
+			if (initTransitions) {
+				e.offsetHeight;		// Trigger CSS changes flush, to force transition spec AFTER elements abocve cursor to position correctly at DOM display
+				e.style.transition = "all .5s ease-in-out";
+			}
 		});
 	}
 });

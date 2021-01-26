@@ -6,25 +6,35 @@ nav {
 	a {
 		padding: 0px 20px;
 	}	
-	&>* {
-		display: flex;
-	}
 	&.top {
 		justify-content: flex-end;
 		opacity: 0;
 		transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 		transform: translateY(-100%);
 		transition-delay: 1.2s;
+		@media screen and (max-width: 1024px) {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			text-align: center;
+			background-color: #333;
+		}
 		a:not(:first-child):hover {
 			text-decoration: line-through;
 		}
 		:first-child {
 			margin-right: auto;
 			text-transform: uppercase;
+			@media screen and (max-width: 1024px) {
+				width: 100%;
+				margin-bottom:  50px;
+			}
 		}
 	}
 	&.bottom {
 		bottom: 0;
+		@media screen and (max-width: 1024px) {
+			display: none;
+		}
 		a {
 			font-size: 0.8rem;
 		}

@@ -19,6 +19,10 @@
 				>:first-child {
 					margin: 0 10%;
 					max-width: 50%;
+					@media screen and (max-width: 1024px) {
+						margin: 0 5%;
+						max-width: 100%;
+					}
 					>:last-child {
 						font-style: italic;
 					}
@@ -28,10 +32,16 @@
 					padding-right: 10%;
 					position: relative;
 					top: 60px;
+					@media screen and (max-width: 1024px) {
+						display: none;
+					}
 				}
 				h1 {
 					font-size: 5rem;
 					font-weight: normal;
+					@media screen and (max-width: 1024px) {
+						font-size: 4.5rem;
+					}
 				}
 			}
 		}
