@@ -1,0 +1,3 @@
+@mixin transition($duree : .2s) {
+	transition:$duree all ease-in-out;
+}

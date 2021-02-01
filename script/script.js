@@ -47,9 +47,7 @@ window.addEventListener("load", (e) => {
 	//-----
 	function CheckScrollableStarts(initTransitions = false) {
 		scrollerstatables.forEach((e, i) => {
-			let objBottomPosAtBody = window.pageYOffset + e.getBoundingClientRect().top;
-			let scrollBottomPosAtBody = window.pageYOffset + window.innerHeight;
-			if (scrollBottomPosAtBody >= objBottomPosAtBody) {
+			if (window.innerHeight >= e.getBoundingClientRect().top) {
 				e.style.top = "0";
 				scrollerstatables = scrollerstatables.filter((elem) => {
 					return elem != e;
