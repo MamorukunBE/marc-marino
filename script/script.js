@@ -1,7 +1,7 @@
 var scrollerstatables;
 
 window.addEventListener("load", (e) => {
-  	document.querySelector('.hider').style.width = "0";
+	document.querySelector('.hider').style.width = "0";
 	let topNavStyles = document.querySelector('nav.top').style;
 	topNavStyles.opacity = "1";
 	topNavStyles.transform = "translateY(0)"
@@ -9,8 +9,7 @@ window.addEventListener("load", (e) => {
 		let titleStyles = document.querySelector('.splash .content').style;
 		titleStyles.opacity = "1";
 		titleStyles.transform = "translateY(0)"
-	} else if (document.body.id == 'projects')
-	{
+	} else if (document.body.id == 'projects') {
 		let projects = Array.from(document.querySelectorAll('.splash .content>div a'));
 		projects.forEach((e) => {
 			e.addEventListener('mouseenter', function(event) {
@@ -19,7 +18,7 @@ window.addEventListener("load", (e) => {
 			})
 			e.addEventListener('mouseleave', function (event) {
 				if (window.innerWidth > 1024)
-					this.parentNode.querySelector('.img').style.opacity = '0';
+					this.parentNode.querySelector('.img').style.opacity = '.5';
 			})
 		})
 	}

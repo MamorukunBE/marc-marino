@@ -17,7 +17,7 @@
 		}
 		.content {
 			height: 100vh;
-			background-image: url('../../../img/annabelle.jpg');
+			background-image: url('../img/annabelle.jpg');
 			background-position: center;
 			background-size: cover;
 			display: flex;
@@ -86,7 +86,7 @@
 			div:first-child {
 				width: 650px;
 				min-width: 650px;
-				background: url('../../../img/3_1.jpg') center/cover;
+				background: url('../img/3_1.jpg') center/cover;
 				@media screen and (max-width: 1024px) {
 					width: 550px;
 					min-width: 200px;
@@ -95,7 +95,7 @@
 			div:last-child {
 				width: 330px;
 				min-width: 330px;
-				background: url('../../../img/3-min.jpg') center/cover;
+				background: url('../img/3-min.jpg') center/cover;
 				@media screen and (max-width: 1024px) {
 					width: 650px;
 					min-width: 200px;
